@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth';
+import { Observable } from "rxjs";
+
+import { User } from '../../models/user';
 
 /**
  * Generated class for the TabsPage page.
@@ -19,6 +23,17 @@ export class TabsPage {
   tab3Root: string = 'AroundPage';
   tab4Root: string = 'FriendsPage';
 
-  constructor() {}
+  user$:Observable<User>;
+
+  constructor(public navCtrl: NavController,
+              private auth:AuthProvider) {
+
+    this.user$ = this.auth.user$;
+
+  }
+
+  logout() {
+    this.auth.logout();
+  }
 
 }

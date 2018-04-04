@@ -10,7 +10,6 @@ import { AuthProvider } from "../providers/auth";
 })
 export class MyApp {
   rootPage:string = '';
-  email: string = '';
 
   constructor(private platform: Platform,
               private statusBar: StatusBar,
@@ -26,19 +25,13 @@ export class MyApp {
     this.auth.user$.subscribe(user => {
       if (user) {
         this.rootPage = 'TabsPage';
-        this.email = user.email;
       }
       else {
         this.rootPage = 'LoginPage';
-        this.email = '';
       }
     });
 
     this.auth.checkLogin();
-  }
-
-  logout() {
-    this.auth.logout();
   }
 
 }
