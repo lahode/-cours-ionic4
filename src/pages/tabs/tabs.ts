@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
 /**
  * Generated class for the TabsPage page.
@@ -19,13 +19,6 @@ export class TabsPage {
   tab3Root: string = 'AroundPage';
   tab4Root: string = 'FriendsPage';
 
-  email:string = "world";
-
-  constructor(public navCtrl: NavController) {
-  }
-
-  logout() {
-    this.navCtrl.setRoot('LoginPage');
-  }
+  constructor() {}
 
 }

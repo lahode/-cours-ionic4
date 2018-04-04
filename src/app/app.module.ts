@@ -8,8 +8,10 @@ import { JwtHelper, AuthConfig, AuthHttp } from "angular2-jwt";
 import { Http, HttpModule, RequestOptions } from "@angular/http";
 import { Storage, IonicStorageModule} from "@ionic/storage";
 
- import { MyApp } from './app.component';
- 
+import { MyApp } from './app.component';
+import { AuthProvider } from '../providers/auth';
+import { EndpointsProvider } from '../providers/endpoints';
+
 // Auth Factory
 export function authHttpServiceFactory(http: Http, options: RequestOptions, storage: Storage) {
   const authConfig = new AuthConfig({
@@ -41,6 +43,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions, stor
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    EndpointsProvider,
     JwtHelper,
     {
       provide: AuthHttp,
