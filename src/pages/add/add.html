@@ -12,5 +12,44 @@
 
 
 <ion-content padding>
+  <ion-list>
 
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="place.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Description</ion-label>
+      <ion-input type="text" [(ngModel)]="place.description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Location</ion-label>
+      <ion-input type="text" [(ngModel)]="location"></ion-input>
+    </ion-item>
+
+    <button ion-button icon-left color="dark" round full (click)="getPicture()">
+      <ion-icon name='camera' is-active="false"></ion-icon>
+      <span>Take picture</span>
+    </button>
+
+    <ion-item *ngIf="error" class="add_error">
+      {{error}}
+    </ion-item>
+
+    <ion-card>
+      <img id="photo" [src]="place.image" *ngIf="place.image" />
+    </ion-card>
+
+   <ion-item *ngIf="imageInfo" class="add_error">
+     {{imageInfo}}
+   </ion-item>
+
+   <button *ngIf="place.name"
+           ion-button
+           icon-left round full
+           (click)="add()">Add my new place</button>
+
+  </ion-list>
 </ion-content>

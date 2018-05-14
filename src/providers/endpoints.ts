@@ -27,4 +27,8 @@ export class EndpointsProvider {
     return this.API_PATH + "/api/places"
   }
 
+  addPlaces(){
+    return this.API_PATH + "/api/add-place"
+  }
+
 }

@@ -155,7 +155,27 @@ app.get('/api/authenticate', function(req, res) {
  * Retourne les "places"
  */
 app.get('/api/places', function(req, res) {
+  conaol
   return res.json(places);
+});
+
+/**
+ * Route d'ajout d'une "place"
+ */
+app.post('/api/add-place', function(req, res) {
+  if (!req.body.name ) {
+    return res.end(res.writeHead(400, "Une place doit au moins avoir un nom."));
+  }
+  places.push(req.body);
+  let json = JSON.stringify(places);
+  fs.writeFile('mydata/places.json', json, 'utf8', function(err) {
+    if (err) {
+      return res.end(res.writeHead(500, "Une erreur est survenu lors de l'ajout d'une place."));
+    }
+    else {
+      return res.json(places);
+    }
+  });
 });
 
 /**

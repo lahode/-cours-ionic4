@@ -24,6 +24,13 @@ export class PlacesProvider {
       .catch(err => Observable.throw(this.handleErrors(err)));
   }
 
+  addPlaces(place):Observable<any>  {
+    console.log(place);
+    return this.authHttp.post(this.endpoints.addPlaces(), place)
+      .map(res => res.json())
+      .catch(err => Observable.throw(this.handleErrors(err)));
+  }
+
   private handleErrors(err: any): any {
     if (!err.ok && err.statusText == '') {
       err.statusText = 'Erreur de connexion avec le serveur';

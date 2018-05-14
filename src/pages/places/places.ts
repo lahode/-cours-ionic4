@@ -17,8 +17,10 @@ export class PlacesPage {
 
   items$:any;
 
-  constructor(public navCtrl: NavController, private places:PlacesProvider) {
-    this.items$ = this.places.getPlaces();
+  constructor(public navCtrl: NavController, private places:PlacesProvider) {}
+
+  ionViewDidEnter() {
+    this.items$ = this.places.getPlaces();    
   }
 
   selectItem(place){
