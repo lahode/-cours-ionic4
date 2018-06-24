@@ -22,6 +22,7 @@ export class TabsPage {
   tab2Root: string = 'AddPage';
   tab3Root: string = 'AroundPage';
   tab4Root: string = 'FriendsPage';
+  tab5Root: string = 'FormPage';
 
   user$:Observable<User>;
 

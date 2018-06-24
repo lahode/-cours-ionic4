@@ -155,7 +155,6 @@ app.get('/api/authenticate', function(req, res) {
  * Retourne les "places"
  */
 app.get('/api/places', function(req, res) {
-  conaol
   return res.json(places);
 });
 
